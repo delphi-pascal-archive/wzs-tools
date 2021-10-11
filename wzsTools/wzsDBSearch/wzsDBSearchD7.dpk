@@ -1,0 +1,49 @@
+package wzsDBSearchD7;
+
+{$R *.res}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'wzsDBSearch'}
+{$IMPLICITBUILD OFF}
+
+requires
+  rtl,
+  designide,
+  vcl,
+  dbrtl,
+  vclactnband,
+  vclx,
+  vcldb,
+  dcldb,
+  vcldesigner,
+  designdgm,
+  dclstd,
+  wzsToolsCommonD7;
+
+contains
+  u_wzsDBSearch in 'u_wzsDBSearch.pas',
+  u_wzsDBSearchEditDesForm in 'u_wzsDBSearchEditDesForm.pas' {wzsDBSearchEditDesForm},
+  u_wzsDBSearchEditors in 'u_wzsDBSearchEditors.pas',
+  u_wzsDBSearchConsts in 'u_wzsDBSearchConsts.pas',
+  u_wzsDBSearchCommon in 'u_wzsDBSearchCommon.pas';
+
+end.

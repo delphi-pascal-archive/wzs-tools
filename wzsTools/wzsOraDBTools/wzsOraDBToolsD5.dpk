@@ -1,0 +1,40 @@
+package wzsOraDBToolsD5;
+
+{$R *.RES}
+{$ALIGN ON}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'wzsOraDBTools'}
+{$IMPLICITBUILD OFF}
+
+requires
+  Vcldb50,
+  doa40d5,
+  wzsToolsCommonD5;
+
+contains
+  u_wzsOraProcExecutor in 'u_wzsOraProcExecutor.pas',
+  u_wzsOraDBToolsEditors in 'u_wzsOraDBToolsEditors.pas',
+  u_wzsOraDBToolsCommon in 'u_wzsOraDBToolsCommon.pas',
+  u_wzsQueryView in 'u_wzsQueryView.pas' {wzsQueryView},
+  u_wzsOraDataset in 'u_wzsOraDataset.pas';
+
+end.

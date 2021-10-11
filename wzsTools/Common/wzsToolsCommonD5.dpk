@@ -1,0 +1,39 @@
+package wzsToolsCommonD5;
+
+{$R *.RES}
+{$ALIGN ON}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'wzsToolsCommon'}
+{$IMPLICITBUILD OFF}
+
+requires
+  Vcl50,
+  Vcldb50;
+
+contains
+  u_wzsToolsEditors in 'u_wzsToolsEditors.pas',
+  QStrings in 'qStrings.pas',
+  u_wzsToolsCommon in 'u_wzsToolsCommon.pas',
+  u_wzsToolsDesForm in 'u_wzsToolsDesForm.pas' {wzsToolsDesForm},
+  u_wzsStyler in 'u_wzsStyler.pas';
+
+end.

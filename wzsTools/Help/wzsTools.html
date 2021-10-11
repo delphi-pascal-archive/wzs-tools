@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>wzsTools - пакеты компонент для Delphi 5/7</title>
+<style type="text/css">
+<!--
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#333333;
+	line-height:18px;
+}
+
+a {
+color:#CC6600;
+}
+
+h1 {
+font-size:16px;
+}
+h2 {
+font-size:14px;
+}
+h3 {
+font-weight:bold;
+font-size:12px;
+}
+.logo {
+font-size:10px;
+}
+.highlight {
+color:#B75B00;
+}
+
+.wsz-gallery-left {
+float:left;
+margin: 0 20px 20px 0;
+}
+
+-->
+</style></head>
+
+<body>
+<p><img src="../Images/wzsTools_logo.png" alt="wzsTools - пакеты компонент для Delphi 5/7" width="90" height="34" class="wsz-gallery-left" /><span class="logo">&copy; Protasov Serg</span><br />
+<a href="http://wzonnet.blogspot.com" target="_blank" class="logo">http://wzonnet.blogspot.com</a> <a href="mailto: wzonnet@kemcity.ru" target="_blank" class="logo">wzonnet@kemcity.ru</a> <a href="http://gen-des.blogspot.com" target="_blank" class="logo">http://gen-des.blogspot.com</a></p>
+<h1>wzsTools - пакеты компонент для Delphi 5/7</h1>
+<p><img src="../Images/wzstools_palette.png" alt="wzsTools для Delphi" width="464" height="54" /></p>
+<p>Пакеты:</p>
+<p><a href="#wzsToolsCommon"><strong>wzsToolsCommon</strong></a> -  пакет, содержащий общие компоненты, custom-классы, редакторы компонентов, и функции для остальных пакетов. В частности: </p>
+<ul>
+  <li><a name="TwzsStyler" id="TwzsStyler"></a>компонента <a href="#TwzsStyler">TwzsStyler</a>, управляющая стилями отрисовки контролов (<strong>flat</strong> / <strong>flatRounded</strong> стили ala DevExpress :), цвета рамок, hot-tracking и т.п.). Поддерживается для компонент библиотеки <a href="http://www.ehlib.com">EhLib</a> (см. пакет <a href="#wzsDBToolsEh">wzsDBToolsEh</a>);</li>
+  <li><a name="TwzsFilterExprBuilder" id="TwzsFilterExprBuilder"></a>класс <span class="highlight">TwzsFilterExprBuilder</span>, позволяющий формировать валидные выражения для стандартного фильтра TDataset.Filter, по заданному списку полей и выражений с поддержкой операций сравнения (&gt;, &lt;, &gt;= и т.д.);</li>
+  <li>ApplyProcOnControl, ApplyProcOnComponent - процедуры быстрого перебора объектов внутри других обектов (внутри owner'ов или parent'ов), с фильтром по классу и по маске имени объекта;</li>
+  <li>ApplyProcOnActionCategory - перебор объектов <strong>TAction</strong> с фильтром по <strong>категории</strong> (свойству TAction.Category);</li>
+</ul>
+<p>Данный пакет должен быть откомпилирован и установлен первым, т.к. на него ссылаются все остальные пакеты wzsTools.</p>
+<p>Требования: Delphi 5/7.</p>
+<p><a href="#wzsComponents"><strong>wzsComponents</strong></a> - компоненты и контролы, унаследованные от стандартного VCL:</p>
+<ul>
+  <li><a href="#TwzsDBLookupCheckBox">TwzsDBLookupCheckBox</a> - компонент, отображающий значения поля <strong>TDataset.ListSource.ListField</strong>  датасета в виде списка, элементы которого можно пометить, и используя свойства <strong>KeyValues</strong> и <strong>KeyValuesString</strong>, получить список выбранных значений поля <strong>KeyField</strong> в виде массива или строки с разделителями;</li>
+</ul>
+<p>Требования: Delphi 5/7.</p>
+<p><a href="#wzsDBSearch"><strong>wzsDBSearch</strong></a> -  пакет компонент и контролов для <strong>фильтрации</strong> и <strong>поиска</strong> в <strong>TDataset</strong>.  Фильтрация и поиск в датасете реализуется через основные   компоненты пакета: <a href="#TwzsDBSearchEdit">TwzsDBSearchEdit</a> и <a href="#TwzsDBSearchEngine">TwzsDBSearchEngine</a>. TwzsDBSearchEngine содержит методы и настройки фильтрации/поиска соединенных с ним контролов TwzsDBSearchEdit. Особенности: </p>
+<ul>
+  <li>автоматическая поддержка фильтрации по <strong>lookup</strong>-полям TDataset с выпадающим списком; </li>
+  <li>одновременное сочетание в контроле TwzsDBSearchEdit фильтра и инкрементного поиска по датасету; </li>
+  <li>поддержка  операций сравнения (&gt;, &lt;, =, &lt;&gt;, &lt;=, &gt;=) при вводе пользователем выражений фильтра;</li>
+  <li> компоненты <a href="#TwzsGroupFilterButton">TwzsGroupFilterButton</a> и <a href="#TwzsGroupClearButton">TwzsGroupClearButton</a> для группового применения/снятия фильтра через связанный TwzsDBSearchEngine;</li>
+</ul>
+<p><img src="../Images/dbsearch_demo.png" alt="wzsDBSearch - фильтрация и поиск в TDataset" width="752" height="401" /></p>
+<p>Требования: Delphi 5/7.</p>
+<p><a name="wzsDBToolsEh" id="wzsDBToolsEh"></a><a href="#wzsDBToolsEh"><strong>wzsDBToolsEh</strong></a> - специально для фанатов <a href="http://www.ehlib.com" target="_blank">EhLib</a>, пакет компонент, унаследованных от контролов этой библиотеки, с поддержкой <strong>flat</strong>-<strong>стиля</strong>  через <a href="#TwzsStyler">TwzsStyler</a>. Прорисовка через TwzsStyler во всех контролах включается при установленном свойстве <strong>Flat</strong>=true и Additional.Styler. Все свойства потомков ehlib-контролов выделены, для удобства, в отдельный объект <strong>Additional</strong>. Компоненты:</p>
+<ul>
+  <li><a href="#TwzsDBGrid">TwzsDBGrid</a> - потомок <strong>TDBGridEh</strong>, расширенный встроенным фильтром/поиском для <strong>STFilter</strong> по dataset'у (через <a href="#TwzsFilterExprBuilder">TwzsFilterExprBuilder</a>), автоматическая настройка STFilter на <strong>lookup</strong>-поля, автоматическое наполнение списков STFilter через встроенный TMemTableEh, подкраска колонок в зависимости от свойств readonly / required полей, настройка горячих клавиш для открытия/применения/очистки фильтра и поиска, поддержка flat стиля (см. <a href="#TwzsStyler">TwzsStyler</a>);</li>
+  <li><span class="highlight">TwzsDBEdit</span>, <span class="highlight">TwzsDBComboBox</span>, <span class="highlight">TwzsDBDateTimeEdit</span>, <span class="highlight">TwzsDBNumberEdit</span>, <span class="highlight">TwzsDBLookupCombobox</span> - db контролы, потомки аналогичных контролов EhLib (TCustomDBEditEh и т.п.), расширенные flat-отрисовкой (свойством Additional.Styler);</li>
+  <li> <span class="highlight">TwzsMonthDBEdit</span> - контрол, наследник TCustomDBComboBoxEh. Обеспечивает выбор <strong>даты</strong> в виде <strong>месяца</strong> года с указанием <strong>формата</strong> даты. Содержит кнопку для «перелистывания» месяцев по типу «следующий/предыдущий», кнопку выпадающего списка для выбора месяца из списка, выбора пустой даты или выбора &quot;даты по умолчанию&quot;. Свойства <strong>MonthFormat</strong>, YearFormat определяют формат месяца и года (напр., mmmm, yyyy), <strong>Delimiter</strong> определяет символ разделитель между месяцем и годом. Свойство <strong>Value</strong> возвращает выбранную дату, округленную до первого числа месяца. Свойства <strong>DefaultDate</strong>, <strong>DefaultLineVisible</strong>, <strong>DefaultLineText</strong> настраивают дату по умолчанию. Свойства <strong>NullLineText</strong>, <strong>NullLineVisible</strong> настраивают null дату в выпадающем списке. </li>
+</ul>
+<p><img src="../Images/dbtoolseh_demo.png" alt="wzsDBtoolsEh - расширенные EhLib контролы" width="736" height="603" /></p>
+<p>Требования: Delphi 5/7, установленный Ehlib 4 или выше.</p>
+<p><a href="#wzsOraDBTools"><strong>wzsOraDBTools</strong></a> - пакет компонент на базе <a href="http://www.allroundautomations.nl/doa.html" target="_blank">Direct Oracle Access</a>. Основные компоненты и процедуры:</p>
+<ul>
+  <li>    <a href="#TwzsOraProcExecutor">TwzsOraProcExecutor</a> -   компонент, позволяющий запускать <strong>хранимые процедуры Oracle</strong> с возможностью получения сообщений из этих процедур в Delphi приложении. Функция получения сообщений в компоненте может быть использована для протоколирования, построения прогресс-баров, отладки - т.е. в тех случаях, когда требуется отправить клиентскому приложению любую информацию из хранимой процедуры во время ее выполнения. Особенности:
+    <ul>
+      <li> хранимые процедуры можно запускать как в потоке приложения, так и в <strong>отдельном потоке</strong>, тем самым не &quot;вешая&quot; приложение;</li>
+      <li> получение сообщений из хранимых процедур Oracle через событие в компоненте, используя механизм <strong>dbms_pipe</strong> или механизм опроса таблицы в <strong>автономной</strong> <strong>транзакции</strong>;</li>
+      <li> обмен сообщениями присходит в рамках одной сессии (сессия запустивная процедуру, прочитает сообщение, предназначенное только для нее);</li>
+      <li> <strong>остановка</strong> <strong>хранимой</strong> <strong>процедуры</strong> любой момент с откатом изменений базы;</li>
+      <li> готовые PL/SQL процедуры для отправки сообщений из хранимых процедур;</li>
+      <li> редакторы свойств для выбора имени пакета, процедуры и установки параметров процедуры в Object Inspector Delphi;</li>
+    </ul>
+  </li>
+</ul>
+<p><img src="../Images/oraprocexecutor2.png" alt="TwzsOraProcExecutor - запуск хранимых процедур Oracle из Delphi" width="248" height="381" class="wsz-gallery-left" /><img src="../Images/oraprocexecutor1.png" alt="TwzsOraProcExecutor - запуск хранимых процедур Oracle из Delphi" width="666" height="398" /></p>
+<ul>
+  <li><span class="highlight">TwzsOracleDataset</span> - потомок <strong>TOracleDataset</strong> со следующими расширениями:
+    <ul>
+      <li>возможность восстановления <strong>позиции</strong> <strong>текущей</strong> <strong>записи</strong> (свойство <strong>KeepBookmark</strong>) после рефреша датасета;</li>
+      <li> обновлением датасета после post'a (свойство RefreshAfterPost);</li>
+      <li>свойствами AllowInsert, AllowDelete;</li>
+    </ul>
+  </li>
+  <li><span class="highlight">GetFieldData</span> - возвращает в TStrings результат выполнения запроса при выборке одного поля;</li>
+  <li>    <span class="highlight">GetFinalSQL</span> -   возвращает текст SQL-запроса <strong>TOracleDataset</strong> с подставленными значениями <strong>переменных</strong> любого типа;</li>
+  <li>    <span class="highlight">GetSessionID</span> -   возвращает идентификатор сессии TOracleSession;</li>
+</ul>
+<p>Требования: Delphi 5/7, установленный <a href="http://www.allroundautomations.nl/doa.html" target="_blank">Direct Oracle Access</a>. Также для работы компоненты в режиме принятия сообщений, необходимо скомпилировать пакет ope_pkgs\ope_pipe_pkg.sql (режим <a href="#TEventModes">emPipe</a>), или пакет ope_pkgs\ope_logtable_pkg.sql (режим <a href="#TEventModes">emLogTable</a>).</p>
+<p>Двойной клик на любой компоненте   вызывает редактор данного компонента и отображает информацию о версии пакета.</p>
+<h2>Установка пакетов</h2>
+<ul>
+  <li>распаковать архив с сохранением структуры папок; </li>
+  <li>открыть, скомпилировать и установить пакет Common\wzsToolsCommonD[x].dpk;</li>
+  <li>открыть, скомпилировать и установить нужный пакет из соответствующей папки (напр., wzsComponents\wzsComponentsD7.dpk);</li>
+  <li>добавить в Library Path пути ко всем установленным пакетам;</li>
+</ul>
+<p>[x] - версия Delphi.</p>
+<h1>Компоненты пакетов, их свойства и методы</h1>
+<h2><a name="TwzsDBSearchEngine" id="TwzsDBSearchEngine"></a>TwzsDBSearchEngine = class(TComponent)</h2>
+<h3> property DataSource: TDataSource</h3>
+<p>Связывает поисковый движок с датасетом, который будет фильтроваться компонентами TwzsDBSearchEdit.</p>
+<h3> property LocateOptions: TLocateOptions<br />
+  property FilterOptions: TFilterOptions<br />
+</h3>
+<p>Настройки фильтра и поиска движка.</p>
+<h3> property PartialOnStrings: boolean</h3>
+<p>Добавлять ли символы &quot;*&quot; к выражению при фильтрации строковых   полей. Форсирует поиск по вхождению строки выражения в значение поля   датасета.</p>
+<h3> property FilterExpr: TwzsFilterExprBuilder</h3>
+<p>Объект, формирующий готовое выражение для фильтра, с учетом типов   полей, операций сравнения и т.п. Может быть использован разработчиками   для построения выражений для стандартного фильтра TDataset.</p>
+<h3>procedure Filter;<br />
+</h3>
+<p>Отфильтровать связанный датасет.</p>
+<h3> procedure ClearFilter;<br />
+</h3>
+<p>Убрать фильтр у датасета.</p>
+<h2><a name="TwzsGroupFilterButton" id="TwzsGroupFilterButton"></a> TwzsGroupFilterButton = class(TwzsCustomSearchEngineButton)</h2>
+<p>Кнопка применения фильтра. По клику фильтрует TDataset на основе   введенных выражений фильтра всех компонент  связанных с поисковым   движком. </p>
+<h3> property SearchEngine: TwzsDBSearchEngine</h3>
+<p>Привязка кнопки к TwzsDBSearchEngine. </p>
+<h2><a name="TwzsGroupClearButton" id="TwzsGroupClearButton"></a> TwzsGroupClearButton = class(TwzsCustomSearchEngineButton)</h2>
+<p>Кнопка очистки фильтра. По клику снимает фильтр у датасета   связанного с поисковым движком и очищает текст у контролов   TwzsDBSearchEdit. </p>
+<h3> property SearchEngine: TwzsDBSearchEngine</h3>
+<p>Привязка кнопки к TwzsDBSearchEngine.</p>
+<h2><a name="TwzsDBSearchEdit" id="TwzsDBSearchEdit"></a> TwzsDBSearchEdit = class(TCustomEdit)</h2>
+<p>Контрол  для ввода выражений фильтра и/или поиска для конечного пользователя. </p>
+<h3>property ClearButton: TwzsEditButtonOptions<br />
+  property DropDownButton: TwzsEditButtonOptions<br />
+  property FilterButton: TwzsEditButtonOptions<br />
+  property LocateButton: TwzsEditButtonOptions</h3>
+<p>Управляет свойствами кнопок контрола для очистки фильтра,   применения фильтра, кнопки выпадающего списка и кнопки поиска. Свойство   ShortCut определяет клавишу, по которой будет выполнено соответствующее   кнопке действие, если фокус находится внутри контрола.</p>
+<h3> property ClearText: boolean</h3>
+<p>Определяет, очищать ли текст контрола при снятии фильтра. </p>
+<h3> property DataField: string</h3>
+<p>Поле, по которому будет вестись поиск и фильтрация (из SearchEngine.Datasource.Dataset).</p>
+<h3> property DropDownBox: TwzsDropDownBoxOptions</h3>
+<p>Настройки выпадающего списка (в режиме lookup-поля). </p>
+<h3> property DynamicLocate: boolean</h3>
+<p>Вводит котрол в режим инкрементного поиска по датасету.</p>
+<h3> property KeyValue: Variant</h3>
+<p>Устанавливает KeyValue в режиме lookup-поля и выбирает значение результирующего поля в контроле.</p>
+<h3> property SearchEngine: TwzsDBSearchEngine</h3>
+<p>Ссылка на поисковый движок.</p>
+<h3> TStyles = (styUltraFlat, stySoftFlat, stySoftBorder, styDefault, styFlatEhlib);<br />
+  property Style: TStyles</h3>
+<p>Определяет внешний вид контролов.</p>
+<h2><a name="TwzsOraProcExecutor" id="TwzsOraProcExecutor"></a>TwzsOraProcExecutor = class(TComponent)</h2>
+<h3> property Session: TOracleSession</h3>
+<p>Сессия <span class="highlight">Direct Oracle Access</span></p>
+<h3> property ProcName: string</h3>
+<p>Имя хранимой процедуры/функции Oracle</p>
+<h3> property PackageName: string</h3>
+<p>Имя пакета Oracle, в котором содержится хранимая процедура/функция.</p>
+<h3> property Variables: TVariables</h3>
+<p>Переменные, передаваемые в хранимую процедуру. Имена переменных   должны совпадать с именами параметров вызываемой хранимой процедуры.</p>
+<h3> property ResultVariable: string</h3>
+<p>Имя переменной из списка <span class="highlight">Variables</span>, в которую будет писаться результат выполнения функции Oracle.</p>
+<h3> property Cursor: TCursor</h3>
+<p>Курсор приложения во время выполнения хранимой процедуры/функции.</p>
+<h3> <a name="TEventModes" id="TEventModes"></a>TEventModes = (emNone, emPipe, emLogTable)<br />
+  property EventMode: TEventModes</h3>
+<p>Режим прослушивания сообщений из хранимых процедур:<br />
+</p>
+<ul>
+  <li>emNone - компонента не принимает сообщений</li>
+  <li>emRealtimePipe - компонента принимает сообщения через механизм <strong>Oracle dbms_pipe</strong>. Для отправки сообщений из хранимой процедуры в компоненту, используйте функции пакета <span class="highlight">ope_pipe</span> (ope_pkgs/ope_pipe_pkg.sql)</li>
+  <li>emLogTable - компонента читает сообщения из служебной таблицы записанные в автономной транзакции пакетом <span class="highlight">ope_logtable</span>. Пакет ope_logtable находится в файле ope_pkgs/ope_logtable_pkg.sql. </li>
+</ul>
+<p>При получении сообщения вызываются обработчики  <a href="#pipeproc">OnThreadPipeMsg</a>, <a href="#logproc">OnThreadLogTableQuery</a></p>
+<h3> property Threaded: boolean</h3>
+<p>Если true, то хранимая процедура запускается и отрабатывает в   отдельном потоке. При этом отрабатывают события <span class="highlight">OnStart</span>, <span class="highlight">OnFinished</span>.<br />
+False - хранимая процедура запускается в потоке приложения. Отрабатывает событие <span class="highlight">OnStart</span>.</p>
+<h3> property LogTableInterval: integer</h3>
+<p>Интервал в мс опроса служебной таблицы</p>
+<h3> property PipeName: string</h3>
+<p>Имя <strong>Oracle pipe</strong>, которая будет использоваться для отправки сообщений.</p>
+<h3> property UniqPipeName: boolean</h3>
+<p>Устанавливает генерацию уникального <span class="highlight">PipeName</span>   для текущей сессии. Если данное свойство = true, установленное   пользователем значение свойства <span class="highlight">PipeName</span> игнорируется и используется   уникальное имя пайпа для <strong>текущей сессии</strong>. Установка в true данного свойства необходимо для принятия компонентой сообщений, предназначенных только для текущей сессии.</p>
+<h3> property AutodetectParams: boolean</h3>
+<p>Автоопределение параметров хранимой процедуры/функции в момент указания <span class="highlight">ProcName</span>.</p>
+<h3> property StopEventsOnFinish: boolean</h3>
+<p>True - прекратить прослушивание pipe-сообщений <strong>сразу</strong> после завершения хранимой процедуры, false - принять всю очередь сообщений из пайпа.</p>
+<h3> property SessionID: string</h3>
+<p>Идентификатор сессии.</p>
+<h3> property OnThreadFinished: TOracleQueryEvent</h3>
+<p>См. TOracleQuery</p>
+<h3> property OnThreadError: TThreadErrorEvent</h3>
+<p>См. TOracleQuery</p>
+<h3> property OnStart: TOracleQueryEvent</h3>
+<p>См. TOracleQuery</p>
+<h3> <a name="pipeproc" id="pipeproc"></a>TPipeMsgProc = procedure (Sender: TOracleEvent; const Msg: Variant) of Object<br />
+  property OnThreadPipeMsg: TPipeMsgProc</h3>
+<p>Выполняется при получении очередного сообщения из хранимой процедуры.</p>
+<h3> <a name="logproc" id="logproc"></a>TLogTableQueryProc = procedure (LogTableQuery: TOracleQuery;<br />
+  Stamp: TDateTime; Num: integer; Str: String; Dat: TDateTime) of Object;<br />
+  property OnThreadLogTableQuery: TLogTableQueryProc</h3>
+<p>Выполняется при  очередном опросе служебной таблицы через каждый <span class="highlight">LogTableInterval</span>.</p>
+<h3> procedure Execute;</h3>
+<p>Выполняет хранимую процедуру/функцию.</p>
+<h3>procedure BreakThread;</h3>
+<p>Останавливает хранимую процедуру.</p>
+<h3>property ThreadIsRunning: boolean</h3>
+<p>Выполняется ли в данный момент процедура.</p>
+<h3> procedure ReadVariables;</h3>
+<p>Считывает параметры указанной процедуры из словаря Oracle и заполняет массив Variables.</p>
+<h3>property ProcQuery: TOracleQuery</h3>
+<p>Объект TOracleQuery внутри компоненты.</p>
+<h2><a name="TwzsDBGrid" id="TwzsDBGrid"></a>TwzsDBGrid = class(TCustomDBGridEh)</h2>
+<h3>property Additional: <a href="#TwzsDBGridAdditional">TwzsDBGridAdditional</a></h3>
+<p>Настраивает расширенные свойства грида.</p>
+<h2><a name="TwzsDBGridAdditional" id="TwzsDBGridAdditional"></a>TwzsDBGridAdditional = class(TPersistent)</h2>
+<h3>property ColumnsHighlight:  TwzsColumnsHighlight</h3>
+<p>Настраивает цвета автоподкраски для состояний поля required/readonly.</p>
+<p>property DefaultFilter: boolean</p>
+<p>Включает формирование стандартного фильтра для TDataset при фильтрации через STFilter. Использует методы  <a href="#TwzsFilterExprBuilder">TwzsFilterExprBuilder</a>.</p>
+<h3>property FilterShortCut: TShortCut<br />
+property ClearFilterShortCut: TShortCut<br />
+property SearchShortCut: TShortCut</h3>
+<p>Устанавливает горячие клавиши для фильтра по колонке, очистки фильтра и поиска.</p>
+<h3>property FilterLookupList: boolean</h3>
+<p>Устанавливает автоматическую генерацию выпадающих списков для lookup полей в фильтре.</p>
+<h3>property FilterValueList: boolean</h3>
+<p>Устанавливает автоматическую генерацию выпадающих списков для уникальных значений поля в фильтре через MemTableEh.</p>
+<h3>property Styler: TwzsStyler</h3>
+<p>Устанавливает ссылку на <a href="#TwzsStyler">TwzsStyler</a> для прорисовки  грида с <strong>flat</strong> стилем.</p>
+<p>&nbsp;</p>
+<p><img src="../Images/wzsTools_logo.png" alt="wzsTools - пакеты компонент для Delphi 5/7" width="90" height="34" class="wsz-gallery-left" /><span class="logo">&copy; Protasov Serg</span><br />
+  <a href="http://wzonnet.blogspot.com" target="_blank" class="logo">http://wzonnet.blogspot.com</a> <a href="mailto: wzonnet@kemcity.ru" target="_blank" class="logo">wzonnet@kemcity.ru</a> <a href="http://gen-des.blogspot.com" target="_blank" class="logo">http://gen-des.blogspot.com</a></p>
+</body>
+</html>

@@ -1,0 +1,40 @@
+package wzsDBToolsEhD5;
+
+{$R *.RES}
+{$ALIGN ON}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'wzsDBToolsEh'}
+{$IMPLICITBUILD OFF}
+
+requires
+  vcl50,
+  Vcldb50,
+  Ehlib,
+  wzsToolsCommonD5;
+
+contains
+  u_wzsMonthDBEdit in 'u_wzsMonthDBEdit.pas',
+  u_wzsDBToolsEhEditors in 'u_wzsDBToolsEhEditors.pas',
+  u_wzsDBToolsEhCommon in 'u_wzsDBToolsEhCommon.pas',
+  u_wzsDBEdits in 'u_wzsDBEdits.pas';
+
+end.
